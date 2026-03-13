@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Система | Кадровый учёт</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">👥</span>
+                <span class="logo-text">HR Система</span>
+            </div>
+            <nav class="nav">
+                <span class="nav-item active">Сотрудники</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Page Title & Stats -->
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Кадровый учёт</h1>
+                    <p class="page-subtitle">Управление сотрудниками организации</p>
+                </div>
+                <button id="addBtn" class="btn btn-primary btn-lg">
+                    <span class="btn-icon">+</span> Добавить сотрудника
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-blue">👥</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalEmployees">0</span>
+                        <span class="stat-label">Всего сотрудников</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-green">✅</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="activeEmployees">0</span>
+                        <span class="stat-label">Активных</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-red">❌</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="firedEmployees">0</span>
+                        <span class="stat-label">Уволенных</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-purple">💰</div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalSalary">0</span>
+                        <span class="stat-label">Общий фонд зарплаты</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-card">
+                <div class="filters-header">
+                    <h3 class="filters-title">🔍 Фильтры и поиск</h3>
+                </div>
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label class="filter-label">Поиск по ФИО</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🔎</span>
+                            <input type="text" id="searchName" class="input" placeholder="Введите фамилию...">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Отдел</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">🏢</span>
+                            <select id="filterDept" class="input">
+                                <option value="">Все отделы</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                                <option value="Sales">Продажи</option>
+                                <option value="Accounting">Бухгалтерия</option>
+                                <option value="Marketing">Маркетинг</option>
+                                <option value="Operations">Операции</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Должность</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📋</span>
+                            <select id="filterPos" class="input">
+                                <option value="">Все должности</option>
+                                <option value="Разработчик">Разработчик</option>
+                                <option value="HR-менеджер">HR-менеджер</option>
+                                <option value="Менеджер">Менеджер</option>
+                                <option value="Бухгалтер">Бухгалтер</option>
+                                <option value="Директор">Директор</option>
+                                <option value="Аналитик">Аналитик</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label class="filter-label">Статус</label>
+                        <div class="input-with-icon">
+                            <span class="input-icon">📊</span>
+                            <select id="filterStatus" class="input">
+                                <option value="">Все статусы</option>
+                                <option value="active">Активные</option>
+                                <option value="fired">Уволенные</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-card">
+                <div class="table-header">
+                    <h3 class="table-title">📋 Список сотрудников</h3>
+                    <span class="table-count" id="tableCount">0 записей</span>
+                </div>
+                <div class="table-wrapper">
+                    <table class="table" id="employeeTable">
+                        <thead>
+                        <tr>
+                            <th>ФИО</th>
+                            <th>Отдел</th>
+                            <th>Должность</th>
+                            <th>Зарплата</th>
+                            <th>Дата приёма</th>
+                            <th>Статус</th>
+                            <th class="text-center">Действия</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                        <!-- Данные будут здесь -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-empty" id="tableEmpty">
+                    <div class="empty-icon">📭</div>
+                    <p class="empty-text">Сотрудники не найдены</p>
+                    <p class="empty-subtext">Добавьте первого сотрудника или измените фильтры</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 HR Система. Все права защищены.</p>
+        </div>
+    </footer>
+</div>
+
+<!-- Modal: View Employee -->
+<div id="viewModal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">📄 Информация о сотруднике</h2>
+                <button class="modal-close" onclick="closeModal('viewModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="employee-profile">
+                    <div class="profile-avatar">
+                        <span class="avatar-text" id="viewAvatar">ИИ</span>
+                    </div>
+                    <div class="profile-info">
+                        <h3 class="profile-name" id="viewFullName">-</h3>
+                        <span class="profile-status" id="viewStatus">-</span>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">📅 Дата рождения</span>
+                        <span class="info-value" id="viewBirthDate">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🛂 Паспорт</span>
+                        <span class="info-value" id="viewPassport">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">📞 Контакты</span>
+                        <span class="info-value" id="viewContact">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🏠 Адрес</span>
+                        <span class="info-value" id="viewAddress">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🏢 Отдел</span>
+                        <span class="info-value" id="viewDepartment">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">📋 Должность</span>
+                        <span class="info-value" id="viewPosition">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">💰 Зарплата</span>
+                        <span class="info-value" id="viewSalary">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">📅 Дата приёма</span>
+                        <span class="info-value" id="viewHireDate">-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('viewModal')">Закрыть</button>
+                <button class="btn btn-warning" id="viewEditBtn">Редактировать</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Add/Edit Employee -->
+<div id="formModal" class="modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">➕ Новый сотрудник</h2>
+                <button class="modal-close" onclick="closeModal('formModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="employeeForm" class="form">
+                    <input type="hidden" id="empId">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">ФИО <span class="required">*</span></label>
+                            <input type="text" id="fullName" class="input" required placeholder="Иванов Иван Иванович">
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Дата рождения <span class="required">*</span></label>
+                            <input type="date" id="birthDate" class="input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Дата приёма <span class="required">*</span></label>
+                            <input type="date" id="hireDate" class="input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Паспорт <span class="required">*</span></label>
+                            <input type="text" id="passport" class="input" required placeholder="0000 000000" maxlength="15">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Контакты <span class="required">*</span></label>
+                            <input type="tel" id="contact" class="input" required placeholder="+7 (___) ___-__-__" maxlength="18">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Адрес проживания <span class="required">*</span></label>
+                        <input type="text" id="address" class="input" required placeholder="г. Москва, ул. Ленина, д. 1">
+                    </div>
+
+                    <div class="form-row form-row-2">
+                        <div class="form-group">
+                            <label class="form-label">Отдел <span class="required">*</span></label>
+                            <select id="department" class="input" required>
+                                <option value="">Выберите отдел</option>
+                                <option value="IT">IT</option>
+                                <option value="HR">HR</option>
+                                <option value="Sales">Продажи</option>
+                                <option value="Accounting">Бухгалтерия</option>
+                                <option value="Marketing">Маркетинг</option>
+                                <option value="Operations">Операции</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Должность <span class="required">*</span></label>
+                            <input type="text" id="position" class="input" required placeholder="Разработчик">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Зарплата (₽) <span class="required">*</span></label>
+                        <input type="number" id="salary" class="input" required placeholder="100000" min="0">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('formModal')">Отмена</button>
+                <button type="submit" form="employeeForm" class="btn btn-primary">💾 Сохранить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Операция выполнена</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
