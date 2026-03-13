@@ -1,0 +1,121 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "fullName": "Иванов Иван Иванович",
+      "birthDate": "1990-05-15",
+      "passport": "1234 567890",
+      "contact": "+7 (999) 000-00-00",
+      "address": "г. Москва, ул. Ленина, д. 1",
+      "department": "IT",
+      "position": "Разработчик",
+      "salary": 150000,
+      "hireDate": "2023-01-10",
+      "isFired": false
+    },
+    {
+      "id": 2,
+      "fullName": "Петрова Анна Сергеевна",
+      "birthDate": "1988-08-20",
+      "passport": "4567 123456",
+      "contact": "+7 (900) 111-22-33",
+      "address": "г. Казань, пр. Мира, д. 5",
+      "department": "HR",
+      "position": "HR-менеджер",
+      "salary": 100000,
+      "hireDate": "2022-03-15",
+      "isFired": false
+    },
+    {
+      "id": 1773382056232,
+      "isFired": false,
+      "fullName": "Кипин Николай Андреевич",
+      "birthDate": "2004-08-19",
+      "passport": "1435 321414",
+      "contact": "+7 (909) 878-67-65",
+      "address": "г.Москва улица Перекурово",
+      "department": "Accounting",
+      "position": "Мастер",
+      "salary": 100000,
+      "hireDate": "2026-03-13"
+    },
+    {
+      "id": 1773383195573,
+      "isFired": false,
+      "fullName": "Балыдин Кирилл Алексеевич",
+      "birthDate": "1991-04-04",
+      "passport": "3424 325325",
+      "contact": "+7 (595) 959-59-55",
+      "address": "г.Ярославль, улица Щедрина, дом 10",
+      "department": "Sales",
+      "position": "Менеджер",
+      "salary": 60000,
+      "hireDate": "2026-03-01"
+    },
+    {
+      "id": 1773384220313,
+      "isFired": false,
+      "fullName": "Колбасенко Дмитрий Евгеньевич",
+      "birthDate": "1999-11-07",
+      "passport": "5252 542523",
+      "contact": "+7 (695) 934-94-21",
+      "address": "г.Кострома, улица Долматово, дом 17",
+      "department": "Sales",
+      "position": "Кассир",
+      "salary": 120000,
+      "hireDate": "2026-01-23"
+    },
+    {
+      "id": 1773384409913,
+      "isFired": true,
+      "fullName": "Орликов Михаил Сергеевич",
+      "birthDate": "2002-06-14",
+      "passport": "6542 341321",
+      "contact": "+7 (999) 931-41-34",
+      "address": "г.Ярославль, улица Майорова, дом 19",
+      "department": "HR",
+      "position": "Специалист",
+      "salary": 30000,
+      "hireDate": "2024-11-15"
+    },
+    {
+      "id": 1773384544552,
+      "isFired": false,
+      "fullName": "Сырнов Евгений Михайлович",
+      "birthDate": "2002-09-19",
+      "passport": "5235 134131",
+      "contact": "+7 (999) 924-23-42",
+      "address": "г.Москва улица Лесная, дом 99",
+      "department": "Accounting",
+      "position": "Бухгалтер",
+      "salary": 60000,
+      "hireDate": "2025-08-20"
+    },
+    {
+      "id": 1773384626833,
+      "isFired": false,
+      "fullName": "Ялин Илья Алексеевич",
+      "birthDate": "2024-09-10",
+      "passport": "5646 456454",
+      "contact": "+7 (993) 212-31-13",
+      "address": "г.Ярославль, улица Московский проспект, дом 13",
+      "department": "IT",
+      "position": "Программист",
+      "salary": 250000,
+      "hireDate": "2023-10-11"
+    },
+    {
+      "id": 1773385499519,
+      "isFired": true,
+      "full_name": "Пендон Ерак Майнгланович",
+      "birth_date": "2002-03-21",
+      "passport": "4341 341341",
+      "contact": "+7 (134) 135-13-45",
+      "address": "г.Москва улица Лесная, дом 99",
+      "department": "Accounting",
+      "position": "Еретик",
+      "salary": 1000000,
+      "hire_date": "2026-03-13"
+    }
+  ]
+}
